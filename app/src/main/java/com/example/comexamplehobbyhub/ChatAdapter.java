@@ -20,6 +20,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import java.util.List;
 
+
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder> {
     private List<ChatMessage> chatMessages;
     private String currentUserId;
@@ -59,10 +60,6 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
         holder.messageText.setText(message.getMessage());
         holder.senderNameText.setText(message.getSenderName());
 
-        // Load profile image for the sender
-        loadProfileImage(holder.profileImage, message.getSenderId());
-
-        // Long press for own messages
         if (message.getSenderId().equals(currentUserId)) {
             holder.itemView.setOnLongClickListener(v -> {
                 showPopup(v, message);
@@ -71,22 +68,6 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
         } else {
             holder.itemView.setOnLongClickListener(null);
         }
-    }
-
-    private void loadProfileImage(ImageView profileImageView, String senderId) {
-        DocumentReference userRef = FirebaseFirestore.getInstance().collection("users").document(senderId);
-        userRef.get().addOnSuccessListener(documentSnapshot -> {
-            if (documentSnapshot.exists()) {
-                String profileImageUrl = documentSnapshot.getString("profileImage");
-                if (profileImageUrl != null && !profileImageUrl.isEmpty()) {
-                    Glide.with(context).load(profileImageUrl).into(profileImageView);
-                } else {
-                    profileImageView.setImageResource(R.drawable.ic_profile_placeholder);
-                }
-            } else {
-                profileImageView.setImageResource(R.drawable.ic_profile_placeholder);
-            }
-        }).addOnFailureListener(e -> profileImageView.setImageResource(R.drawable.ic_profile_placeholder));
     }
 
     private void showPopup(View anchorView, ChatMessage message) {
@@ -113,29 +94,23 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
             deleteMessage(message);
         });
 
-        // Get anchor (message view) position
         int[] anchorLocation = new int[2];
         anchorView.getLocationOnScreen(anchorLocation);
         int anchorX = anchorLocation[0];
         int anchorY = anchorLocation[1];
 
-        // Measure popup
         popupView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
         int popupWidth = popupView.getMeasuredWidth();
         int popupHeight = popupView.getMeasuredHeight();
         int anchorHeight = anchorView.getHeight();
 
-        // Vertical center of the message bubble
         int yOffset = anchorY + (anchorHeight / 2) - (popupHeight / 2);
 
-        // Position to the left or right of the message
         boolean isMyMessage = message.getSenderId().equals(currentUserId);
         int xOffset;
         if (isMyMessage) {
-            // Show to the right of sent message
             xOffset = anchorX + anchorView.getWidth();
         } else {
-            // Show to the left of received message
             xOffset = anchorX - popupWidth;
         }
 
@@ -190,13 +165,11 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
 
     public static class ChatViewHolder extends RecyclerView.ViewHolder {
         TextView messageText, senderNameText;
-        ImageView profileImage;
 
         public ChatViewHolder(@NonNull View itemView) {
             super(itemView);
             senderNameText = itemView.findViewById(R.id.senderNameText);
             messageText = itemView.findViewById(R.id.messageText);
-            profileImage = itemView.findViewById(R.id.profileImage);
         }
     }
 }

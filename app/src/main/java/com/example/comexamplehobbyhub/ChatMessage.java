@@ -5,23 +5,21 @@ public class ChatMessage {
     private String senderName;
     private String message;
     private long timestamp;
-    private String senderProfileImage; // Add this field
 
     public ChatMessage() {}
 
-    public ChatMessage(String senderId, String senderName, String message, long timestamp, String senderProfileImage) {
+    public ChatMessage(String senderId, String senderName, String message, long timestamp) {
         this.senderId = senderId;
         this.senderName = senderName;
         this.message = message;
         this.timestamp = timestamp;
-        this.senderProfileImage = senderProfileImage; // Initialize this field
     }
 
     public String getSenderId() {
         return senderId;
     }
 
-    public String getSenderName() {
+    public String getSenderName() { // Add this method
         return senderName;
     }
 
@@ -31,9 +29,5 @@ public class ChatMessage {
 
     public long getTimestamp() {
         return timestamp;
-    }
-
-    public String getSenderProfileImage() {
-        return senderProfileImage; // Getter for profile image URL
     }
 }
