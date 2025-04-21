@@ -1,0 +1,80 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgProfile"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_profile_placeholder"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/txtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/editNickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter a nickname"
+        android:background="@drawable/design4"
+        android:padding="10dp"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText
+        android:id="@+id/editUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter a username"
+        android:background="@drawable/design4"
+        android:padding="10dp"
+        android:layout_marginBottom="12dp" />
+
+    <Spinner
+        android:id="@+id/spinnerHobby"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/design4"
+        android:padding="10dp"
+        android:layout_marginBottom="12dp"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp">
+
+    <ImageButton
+        android:id="@+id/btnSave"
+        android:layout_width="94dp"
+android:layout_marginEnd="20dp"
+        android:layout_height="94dp"
+        android:background="@drawable/design4"
+        app:srcCompat="@drawable/save" />
+
+
+    <ImageButton
+        android:id="@+id/btnLogout"
+        android:layout_width="94dp"
+        android:layout_height="94dp"
+        android:background="@drawable/design4"
+        app:srcCompat="@drawable/logout__1_" />
+
+
+        </LinearLayout>
+
+
+
+</LinearLayout>

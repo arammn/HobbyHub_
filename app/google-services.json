@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "78375371704",
+    "project_id": "log-reg-2c669",
+    "storage_bucket": "log-reg-2c669.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78375371704:android:dcbbb804ab552c93ea854d",
+        "android_client_info": {
+          "package_name": "com.example.comexamplehobbyhub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCriFgxqAYCbk8vqtqAPnJLLbDxmLN4Ras"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

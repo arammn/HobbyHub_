@@ -1,0 +1,10 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <solid android:color="#0084FF"/> <!-- Blue color for sent messages -->
+
+    <corners android:radius="16dp"
+        android:bottomRightRadius="0dp"/> <!-- Adjust to give a chat bubble effect -->
+
+    <padding android:left="10dp" android:right="16dp" android:top="8dp" android:bottom="8dp"/>
+</shape>

@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:id="@+id/mainContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="CREATE A POST"
+            android:textColor="#333333"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editPostContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter the text of the post"
+            android:background="@drawable/design4"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <ImageView
+            android:id="@+id/imgPost"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp" />
+
+        <ImageButton
+            android:id="@+id/btnPost"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:background="@drawable/design4"
+            app:srcCompat="@drawable/upload"
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="to publish"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btnComeBackPost"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="16dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/left_arrow"
+        android:scaleType="centerInside"
+        android:contentDescription="Back" />
+</RelativeLayout>
