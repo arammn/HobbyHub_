@@ -15,15 +15,13 @@
         android:background="@drawable/design4"
         android:padding="8dp">
 
-        <!-- ImageView для картинки -->
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView2"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginEnd="8dp"
-            app:srcCompat="@drawable/ic_profile_placeholder" />
+            android:src="@drawable/ic_profile_placeholder" />
 
-        <!-- TextView для имени пользователя -->
         <TextView
             android:id="@+id/usernameTextView"
             android:layout_width="wrap_content"
@@ -33,13 +31,11 @@
             android:textStyle="bold"
             android:layout_gravity="center_vertical" />
 
-        <!-- Пустой элемент для растяжения (занимает оставшееся пространство) -->
         <Space
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
-        <!-- Кнопка добавления чата -->
         <ImageButton
             android:id="@+id/addChatButton"
             android:scaleType="centerInside"
@@ -87,6 +83,5 @@
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_marginBottom="5dp" />
-
     </LinearLayout>
 </LinearLayout>

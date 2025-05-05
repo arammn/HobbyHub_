@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -28,6 +29,15 @@
             android:layout_height="wrap_content"
             android:text="Nickname"
             android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/userRankMedal"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="5dp"
+            app:srcCompat="@drawable/bronze_medal" />
+
+
 
     </LinearLayout>
 
@@ -60,37 +70,51 @@
         android:orientation="horizontal"
         android:layout_marginTop="12dp">
 
-<!--        <ImageButton-->
-<!--            android:id="@+id/btnLike"-->
-<!--            android:layout_width="40dp"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:src="@drawable/ic_like"-->
-<!--            android:contentDescription="Like"-->
-<!--            android:background="?android:attr/selectableItemBackground"-->
-<!--            android:scaleType="centerInside"-->
-<!--            android:layout_marginEnd="16dp"/>-->
+    <ImageButton
+        android:id="@+id/btnLike"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/like"
+        android:contentDescription="Like"
+        android:background="?android:attr/selectableItemBackground"
+        android:scaleType="centerInside"
+        android:layout_marginEnd="4dp"/>
+
+    <TextView
+        android:id="@+id/likeCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="14sp"
+        android:layout_gravity="center_vertical"/>
+
+        <ImageButton
+            android:id="@+id/btnEditPost"
+            android:layout_width="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_height="40dp"
+            android:src="@drawable/pen"
+            android:background="?android:attr/selectableItemBackground"
+            android:visibility="gone"
+            android:scaleType="centerInside"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp">
 
         <ImageButton
             android:id="@+id/btnComment"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/chat"
+            android:visibility="gone"
             android:contentDescription="Comment"
             android:layout_marginEnd="16dp"
             android:background="?android:attr/selectableItemBackground"
             android:scaleType="centerInside"/>
-        
-
-        <ImageButton
-            android:id="@+id/btnEditPost"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/pen"
-            android:background="?android:attr/selectableItemBackground"
-            android:visibility="gone"
-
-            android:scaleType="centerInside"/>
-
-
     </LinearLayout>
 </LinearLayout>

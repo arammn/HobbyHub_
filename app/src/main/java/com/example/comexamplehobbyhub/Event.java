@@ -2,6 +2,8 @@ package com.example.comexamplehobbyhub;
 
 import com.google.firebase.firestore.Exclude;
 
+import java.util.Date;
+
 public class Event {
     @Exclude
     private String id;
@@ -10,8 +12,12 @@ public class Event {
     private double latitude;
     private double longitude;
 
+    private Date eventDate;
+    private Date autoDeleteAt;
+
+
+
     public Event() {
-        // Firebase требует пустой конструктор
     }
 
     public Event(String id, String name, int participants, double latitude, double longitude) {
@@ -27,4 +33,13 @@ public class Event {
     public int getParticipants() { return participants; }
     public double getLatitude() { return latitude; }
     public double getLongitude() { return longitude; }
+
+    public Date getEventDate() {
+        return eventDate;
+    }
+
+    public Date getAutoDeleteAt() {
+        return autoDeleteAt;
+    }
+
 }

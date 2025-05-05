@@ -12,7 +12,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="20dp"
         android:fontFamily="serif-monospace"
-        android:text="CHATS"
+        android:text="Chats"
         android:textSize="24sp"
         android:textStyle="bold" />
 

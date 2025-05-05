@@ -5,20 +5,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
-    android:padding="8dp"
+    android:padding="16dp"
     tools:context=".EventsFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/textViewHomeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:fontFamily="serif-monospace"
         android:text="Events"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_gravity="center"
         android:layout_marginBottom="20dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/spark"
+            android:contentDescription="Валюта"/>
+
+        <TextView
+            android:id="@+id/currencyCounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="0"
+            android:fontFamily="serif-monospace"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+    </RelativeLayout>
 
     <ImageButton
         android:id="@+id/btnCreateEvent"
@@ -37,6 +66,9 @@
         android:layout_marginStart="5dp"
         android:textColor="@color/black"
         android:textStyle="bold" />
+
+
+
 
 
     <ProgressBar

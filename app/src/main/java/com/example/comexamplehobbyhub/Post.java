@@ -1,33 +1,33 @@
 package com.example.comexamplehobbyhub;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Post {
     private String userId;
-    private String userName;
     private String postTime;
     private String postContent;
-    private String userAvatar;
     private String postImage;
+    private String postId;
 
-    private String postId; // Add this field
+    private List<String> likes = new ArrayList<>();
+    private int likeCount = 0;
 
 
     public Post() {}
 
-    public Post(String userId, String userName, String postTime, String postContent, String userAvatar, String postImage, String postId) {
+    public Post(String userId, String postTime, String postContent, String postImage, String postId, List<String> likes, int likeCount) {
         this.userId = userId;
-        this.userName = userName;
         this.postTime = postTime;
         this.postContent = postContent;
-        this.userAvatar = userAvatar;
         this.postImage = postImage;
         this.postId = postId;
+        this.likes = likes;
+        this.likeCount = likeCount;
     }
 
     public String getUserId() {
         return userId;
-    }
-
-    public String getUserName() {
-        return userName;
     }
 
     public String getPostTime() {
@@ -47,15 +47,40 @@ public class Post {
         return postId;
     }
 
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public void setPostTime(String postTime) {
+        this.postTime = postTime;
+    }
+
+    public void setPostContent(String postContent) {
+        this.postContent = postContent;
+    }
+
+    public void setPostImage(String postImage) {
+        this.postImage = postImage;
+    }
+
     public void setPostId(String postId) {
         this.postId = postId;
     }
 
-    public String getUserAvatar() {
-        return userAvatar;
+    public List<String> getLikes() {
+        return likes;
     }
 
-    public void setUserAvatar(String userAvatar) {
-        this.userAvatar = userAvatar;
+    public int getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikes(List<String> likes) {
+        this.likes = likes;
+    }
+
+    public void setLikeCount(int likeCount) {
+        this.likeCount = likeCount;
     }
 }

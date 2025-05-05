@@ -48,6 +48,8 @@ public class HobbiesFragment extends Fragment {
 
         fetchCurrentUserHobby();
 
+        updateCurrencyCounter(view);
+
         return view;
     }
 
@@ -76,9 +78,10 @@ public class HobbiesFragment extends Fragment {
                         String uid = document.getString("uid");
                         String email = document.getString("email");
                         String username = document.getString("username");
+                        String profileImage = document.getString("profileImage");
 
                         if (!uid.equals(mAuth.getCurrentUser().getUid())) {
-                            userList.add(new User(uid, email, username, hobby));
+                            userList.add(new User(uid, email, username, hobby, profileImage));
                         }
                     }
                     userAdapter.notifyDataSetChanged();
@@ -92,6 +95,21 @@ public class HobbiesFragment extends Fragment {
                     }
                 })
                 .addOnFailureListener(e -> Toast.makeText(getContext(), "Error fetching users", Toast.LENGTH_SHORT).show());
+    }
+
+    private void updateCurrencyCounter(View view) {
+        TextView currencyCounter = view.findViewById(R.id.currencyCounter);
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        FirebaseFirestore.getInstance().collection("users")
+                .document(userId)
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    Long coins = documentSnapshot.getLong("sparkCoins");
+                    if (coins != null) {
+                        currencyCounter.setText(String.valueOf(coins));
+                    }
+                });
     }
 
 }

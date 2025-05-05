@@ -44,6 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
         textViewHobby = findViewById(R.id.textViewHobby);
 
         btnRegister.setOnClickListener(v -> checkUsernameAvailability());
+
         textViewHobby.setOnClickListener(v -> showHobbySelectionDialog());
     }
 
@@ -54,6 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
+        // Ensure username is lowercase
         if (!username.matches("^[a-z0-9_]+$")) {
             Toast.makeText(this, "Username must contain only lowercase letters, numbers, or underscores", Toast.LENGTH_SHORT).show();
             return;
@@ -80,6 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
         String confirmPassword = editTextConfirmPassword.getText().toString().trim();
+
 
         if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
@@ -128,6 +131,7 @@ public class RegisterActivity extends AppCompatActivity {
         userData.put("email", email);
         userData.put("username", username);
         userData.put("hobby", selectedHobby);
+        userData.put("sparkCoins", 0);
 
         db.collection("users").document(userId).set(userData)
                 .addOnSuccessListener(aVoid -> Toast.makeText(this, "User added to Firestore", Toast.LENGTH_SHORT).show())
@@ -135,47 +139,14 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void showHobbySelectionDialog() {
-        // Organized hobby categories with more options
-        String[] categories = {
-                "🎮 Gaming",
-                "🎵 Music",
-                "⚽ Sports",
-                "📚 Reading",
-                "🎨 Arts & Crafts",
-                "🍳 Cooking",
-                "💃 Dancing",
-                "🌿 Outdoor",
-                "🧠 Learning",
-                "📸 Photography"
-        };
-
-        String[][] hobbies = {
-                {"Video Games", "Board Games", "Puzzle Games", "VR Gaming", "eSports"},
-                {"Playing Instrument", "Singing", "Music Production", "DJing", "Concerts"},
-                {"Football", "Basketball", "Tennis", "Swimming", "Yoga", "Running"},
-                {"Fiction", "Non-fiction", "Sci-fi", "Fantasy", "Biographies"},
-                {"Painting", "Drawing", "Pottery", "Knitting", "Woodworking", "3D Printing"},
-                {"Baking", "Grilling", "Mixology", "Food Blogging", "International Cuisine"},
-                {"Ballet", "Hip-hop", "Salsa", "Ballroom", "Contemporary"},
-                {"Hiking", "Camping", "Gardening", "Fishing", "Bird Watching"},
-                {"Languages", "Coding", "History", "Science", "Philosophy"},
-                {"Portrait", "Landscape", "Street", "Wildlife", "Astrophotography"}
-        };
+        String[] hobbies = {"Gaming", "Music", "Sports", "Reading", "Painting", "Cooking", "Dancing"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Select Your Hobby Category");
-        builder.setItems(categories, (dialog, categoryIndex) -> {
-            // Show sub-hobbies for selected category
-            AlertDialog.Builder subHobbyBuilder = new AlertDialog.Builder(this);
-            subHobbyBuilder.setTitle("Select Specific Hobby");
-            subHobbyBuilder.setItems(hobbies[categoryIndex], (subDialog, hobbyIndex) -> {
-                selectedHobby = categories[categoryIndex].substring(2) + ": " + hobbies[categoryIndex][hobbyIndex];
-                textViewHobby.setText(selectedHobby);
-            });
-            subHobbyBuilder.setNegativeButton("Cancel", null);
-            subHobbyBuilder.show();
+        builder.setTitle("Select Your Hobby");
+        builder.setItems(hobbies, (dialog, which) -> {
+            selectedHobby = hobbies[which];
+            textViewHobby.setText(selectedHobby);
         });
-        builder.setNegativeButton("Cancel", null);
         builder.show();
     }
 }

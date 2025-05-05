@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
@@ -107,6 +108,10 @@ public class ChatActivity extends AppCompatActivity {
                         .addOnFailureListener(e -> Log.e("ChatActivity", "Error sending message", e));
 
                 messageEditText.setText("");
+
+                String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                db.collection("users").document(uid)
+                        .update("xp", FieldValue.increment(0.1));
             } else {
                 Log.e("ChatActivity", "Username not found in Firestore");
             }

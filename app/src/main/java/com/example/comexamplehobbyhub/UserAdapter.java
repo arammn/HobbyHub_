@@ -7,10 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -46,6 +49,16 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         holder.usernameTextView.setText(user.getUsername());
         holder.emailTextView.setText(user.getEmail());
         holder.hobbyTextView.setText(user.getHobby());
+
+        if (user.getProfileImage() != null && !user.getProfileImage().isEmpty()) {
+            Glide.with(context)
+                    .load(user.getProfileImage())
+                    .placeholder(R.drawable.ic_profile_placeholder)
+                    .error(R.drawable.ic_profile_placeholder)
+                    .into(holder.userAvatar);
+        } else {
+            holder.userAvatar.setImageResource(R.drawable.ic_profile_placeholder);
+        }
 
         holder.addChatButton.setOnClickListener(v -> createChat(user.getUid(), user.getUsername()));
     }
@@ -93,6 +106,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView usernameTextView, emailTextView, hobbyTextView;
         ImageButton addChatButton;
+        ImageView userAvatar;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -100,6 +114,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             emailTextView = itemView.findViewById(R.id.emailTextView);
             hobbyTextView = itemView.findViewById(R.id.hobbyTextView);
             addChatButton = itemView.findViewById(R.id.addChatButton);
+            userAvatar = itemView.findViewById(R.id.imageView2);
         }
     }
 }

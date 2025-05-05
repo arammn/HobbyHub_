@@ -51,7 +51,6 @@ public class EventsFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
         loadEvents();
 
-        // Set onClickListener to open CreateEventActivity
         btnCreateEvent.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), CreateEventFragment.class);
             startActivity(intent);

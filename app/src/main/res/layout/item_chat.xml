@@ -9,7 +9,7 @@
     android:padding="12dp">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/senderAvatar"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"

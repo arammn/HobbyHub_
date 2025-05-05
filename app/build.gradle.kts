@@ -68,5 +68,18 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.android.volley:volley:1.2.1")
     implementation("de.hdodenhof:circleimageview:3.1.0")
+
+
+    implementation("androidx.media3:media3-exoplayer:1.2.0")
+    implementation("androidx.media3:media3-ui:1.2.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    implementation("com.cloudinary:cloudinary-android:2.3.1")
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("com.google.android.exoplayer:exoplayer:2.18.7")
+    implementation("com.squareup.okhttp3:okhttp:4.9.3")
+
 }
 

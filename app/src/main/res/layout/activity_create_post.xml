@@ -39,9 +39,10 @@
             android:id="@+id/imgPost"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/design4"
             android:scaleType="centerCrop"
-            android:visibility="gone"
-            android:layout_marginBottom="16dp" />
+            android:contentDescription="Selected Image" />
 
         <ImageButton
             android:id="@+id/btnPost"
