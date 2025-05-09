@@ -23,5 +23,6 @@
         android:text="Chat Partner"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="@color/white"
         android:padding="8dp"/>
 </LinearLayout>

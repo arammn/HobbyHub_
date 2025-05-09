@@ -1,27 +1,33 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="16dp"
-    android:orientation="vertical">
+    android:background="#212121"
+    android:padding="16dp">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
     <EditText
         android:id="@+id/editPostContent"
-        android:layout_marginTop="250dp"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@drawable/design4"
+        android:textColor="@color/white"
         android:fontFamily="monospace"
+        android:textColorHint="#FFFF"
         android:hint="Edit your post"
         android:textAlignment="center"
         android:textStyle="bold" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="12dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal">
 
         <ImageButton
             android:id="@+id/btnUpdatePost"
@@ -30,7 +36,9 @@
             android:layout_height="94dp"
 
             android:background="@drawable/design4"
-            app:srcCompat="@drawable/save" />
+            app:srcCompat="@drawable/save"
+            android:padding="18dp"
+            android:scaleType="fitCenter"/>
 
 
         <ImageButton
@@ -39,17 +47,22 @@
             android:layout_height="94dp"
             android:background="@drawable/design4"
             app:srcCompat="@drawable/trash"
-            android:scaleType="centerInside"/>
+            android:padding="16dp"
+            android:scaleType="fitCenter"/>
 
         </LinearLayout>
+    </LinearLayout>
 
     <ImageButton
         android:id="@+id/btnComeBack"
-        android:layout_width="70dp"
-        android:layout_marginTop="210dp"
-        android:layout_height="70dp"
-        android:background="?android:attr/selectableItemBackground"
-        app:srcCompat="@drawable/left_arrow"
-        android:scaleType="centerInside"/>
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="16dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/left_arrow"
+        android:scaleType="centerInside"
+        android:contentDescription="Back"/>
 
-</LinearLayout>
+</RelativeLayout>

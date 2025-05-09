@@ -11,16 +11,22 @@
         android:layout_marginBottom="10dp">
 
         <TextView
-            android:id="@+id/textViewHomeTitle"
+            android:id="@+id/textHobbyTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="5dp"
             android:fontFamily="serif-monospace"
             android:text="Hobbies"
+            android:textColor="#FFFF"
             android:textSize="24sp"
             android:textStyle="bold" />
 
-    <LinearLayout
+
+        <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"

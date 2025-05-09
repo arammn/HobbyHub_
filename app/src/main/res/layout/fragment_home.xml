@@ -5,43 +5,57 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnCreatePost"
+        <!-- Кнопки слева -->
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            app:srcCompat="@drawable/upload"
-            android:contentDescription="Create Post"
-            android:scaleType="centerInside"
-            app:fabSize="mini" />
+            android:orientation="horizontal">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnQuests"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="70dp"
-            app:srcCompat="@drawable/party"
-            android:contentDescription="Create Post"
-            android:scaleType="centerInside"
-            app:fabSize="mini" />
+            <ImageButton
+                android:id="@+id/btnCreatePost"
+                android:layout_width="55dp"
+                android:layout_height="40dp"
+                android:background="@drawable/design4"
+                android:contentDescription="Create Post"
+                android:padding="8dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/upload" />
 
+            <ImageButton
+                android:id="@+id/btnQuests"
+                android:layout_width="55dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/design4"
+                android:contentDescription="Quests"
+                android:padding="8dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/quest" />
+        </LinearLayout>
+
+        <!-- Заголовок Home с отступом 5dp от кнопок -->
         <TextView
             android:id="@+id/textViewHomeTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_toEndOf="@id/linearLayout"
+            android:layout_marginStart="10dp"
+            android:layout_centerVertical="true"
             android:fontFamily="serif-monospace"
             android:text="Home"
+            android:textColor="@color/white"
             android:textSize="24sp"
+            android:visibility="gone"
             android:textStyle="bold" />
 
+        <!-- Скрытый блок с валютой (оставлен как было) -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,16 +80,13 @@
                 android:textSize="20dp"
                 android:textStyle="bold"/>
         </LinearLayout>
-
-
-
-
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/postsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="5dp"
         android:layout_weight="1"
         android:nestedScrollingEnabled="false" />
 

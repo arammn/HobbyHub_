@@ -81,5 +81,7 @@ dependencies {
     implementation("com.google.android.exoplayer:exoplayer:2.18.7")
     implementation("com.squareup.okhttp3:okhttp:4.9.3")
 
+    implementation("com.airbnb.android:lottie:6.1.0")
+
 }
 

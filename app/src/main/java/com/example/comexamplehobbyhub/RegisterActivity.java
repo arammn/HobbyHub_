@@ -55,7 +55,6 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-        // Ensure username is lowercase
         if (!username.matches("^[a-z0-9_]+$")) {
             Toast.makeText(this, "Username must contain only lowercase letters, numbers, or underscores", Toast.LENGTH_SHORT).show();
             return;
@@ -132,6 +131,7 @@ public class RegisterActivity extends AppCompatActivity {
         userData.put("username", username);
         userData.put("hobby", selectedHobby);
         userData.put("sparkCoins", 0);
+        userData.put("xp", 0);
 
         db.collection("users").document(userId).set(userData)
                 .addOnSuccessListener(aVoid -> Toast.makeText(this, "User added to Firestore", Toast.LENGTH_SHORT).show())

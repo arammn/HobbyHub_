@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
 
-        android:background="@drawable/design4"
         android:padding="8dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -29,6 +28,7 @@
             android:text="Username"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:textColor="#FFFF"
             android:layout_gravity="center_vertical" />
 
         <Space
@@ -38,11 +38,13 @@
 
         <ImageButton
             android:id="@+id/addChatButton"
-            android:scaleType="centerInside"
-            android:background="@android:color/transparent"
+
+            android:background="@drawable/design8"
             android:layout_width="40dp"
             android:layout_height="40dp"
             app:srcCompat="@drawable/add_chat"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
             android:layout_gravity="center_vertical" />
 
     </LinearLayout>
@@ -54,6 +56,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="serif"
         android:text="Email"
+        android:textColor="#767676"
         android:layout_marginStart="10dp"
         android:textSize="16sp"
         android:textStyle="bold" />
@@ -63,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:orientation="horizontal"
-        android:background="@drawable/design4">
+>
 
         <TextView
             android:id="@+id/ffdgf"
@@ -72,6 +75,7 @@
             android:fontFamily="serif"
             android:text="Hobby: "
             android:textSize="16sp"
+            android:textColor="#767676"
             android:textStyle="bold" />
 
         <TextView
@@ -80,6 +84,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="serif"
             android:text="Hobby"
+            android:textColor="#767676"
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_marginBottom="5dp" />

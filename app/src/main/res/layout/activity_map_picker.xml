@@ -17,10 +17,11 @@
         android:layout_height="56dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_margin="16dp"
-        android:background="@drawable/design6"
+        android:layout_margin="10dp"
+        android:padding="12dp"
+        android:scaleType="fitCenter"
+        android:background="@drawable/design4"
         android:src="@drawable/user"
-        android:scaleType="centerInside"
         android:contentDescription="My Location" />
 
     <!-- Apply button (bottom-right corner) -->
@@ -30,9 +31,10 @@
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_margin="16dp"
-        android:background="@drawable/design6"
+        android:layout_margin="10dp"
+        android:padding="12dp"
+        android:scaleType="fitCenter"
+        android:background="@drawable/design4"
         android:src="@drawable/save"
-        android:scaleType="centerInside"
         android:contentDescription="Apply" />
 </RelativeLayout>

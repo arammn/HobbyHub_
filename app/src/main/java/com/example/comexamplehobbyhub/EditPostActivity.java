@@ -43,7 +43,7 @@ public class EditPostActivity extends AppCompatActivity {
 
         btnDeletePost.setOnClickListener(v -> deletePost());
         btnUpdatePost.setOnClickListener(v -> updatePost());
-        btnComeBack.setOnClickListener(v -> finish()); // Close activity and go back
+        btnComeBack.setOnClickListener(v -> finish());
     }
 
     private void deletePost() {
@@ -57,7 +57,7 @@ public class EditPostActivity extends AppCompatActivity {
                 .addOnSuccessListener(aVoid -> {
                     Toast.makeText(EditPostActivity.this, "Post deleted", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(EditPostActivity.this, MainActivity.class));
-                    finish(); // Close edit activity
+                    finish();
                 })
                 .addOnFailureListener(e ->
                         Toast.makeText(EditPostActivity.this, "Failed to delete", Toast.LENGTH_SHORT).show()

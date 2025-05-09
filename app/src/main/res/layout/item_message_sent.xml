@@ -2,10 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="8dp"
     android:orientation="horizontal"
-    android:gravity="start">
+    android:gravity="start"> <!-- Сообщение слева -->
 
     <ImageView
         android:id="@+id/senderAvatar"
@@ -13,36 +12,30 @@
         android:layout_height="40dp"
         android:src="@drawable/ic_profile_placeholder"
         android:layout_marginEnd="8dp"
-        android:scaleType="centerCrop"
-        android:layout_gravity="start" />
-
+        android:scaleType="centerCrop"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp"
+        android:padding="12dp"
         android:orientation="vertical"
         android:background="@drawable/bg_message_sent"
         android:layout_margin="4dp">
-
 
         <TextView
             android:id="@+id/senderNameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="viewStart"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#B4B4B4"
+            android:textSize="12sp"/>
 
         <TextView
             android:id="@+id/messageText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
             android:padding="4dp"
-            android:textColor="@android:color/black"/>
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"/>
     </LinearLayout>
 </LinearLayout>
-
-

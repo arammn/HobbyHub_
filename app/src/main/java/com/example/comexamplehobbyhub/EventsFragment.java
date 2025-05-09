@@ -40,7 +40,7 @@ public class EventsFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerViewEvents);
         progressBar = view.findViewById(R.id.progressBar);
         tvNoEvents = view.findViewById(R.id.tvNoEvents);
-        btnCreateEvent = view.findViewById(R.id.btnCreateEvent); // Initialize the button
+        btnCreateEvent = view.findViewById(R.id.btnCreateEvent);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 

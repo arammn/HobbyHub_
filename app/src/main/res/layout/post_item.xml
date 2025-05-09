@@ -4,117 +4,146 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="20dp"
     android:background="@drawable/design4"
-    android:layout_marginBottom="16dp">
+    android:layout_marginHorizontal="2dp"
+    android:layout_marginBottom="12dp"
+    android:elevation="2dp">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userAvatar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_profile_placeholder"
+            android:contentDescription="User Avatar"
+            android:elevation="2dp"
+            app:civ_border_width="1dp"
+            app:civ_border_color="#383838"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nickname"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"/>
+
+                <ImageView
+                    android:id="@+id/userRankMedal"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="8dp"
+                    app:srcCompat="@drawable/bronze_medal" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/postTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#A8A8A8"
+                android:text="2 hours ago"
+                android:layout_marginTop="2dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/postContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:lineSpacingExtra="4dp"
+        android:textColor="#E0E0E0"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris."
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Post Image -->
+    <ImageView
+        android:id="@+id/postImage"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="12dp"
+        android:visibility="gone"
+        android:background="#383838"
+        android:contentDescription="Post image"/>
+
+    <!-- Action Buttons -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/userAvatar"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="12dp"
-            android:src="@drawable/ic_profile_placeholder"
-            android:contentDescription="User Avatar"/>
-
-
-        <TextView
-            android:id="@+id/userName"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nickname"
-            android:textStyle="bold"/>
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-        <ImageView
-            android:id="@+id/userRankMedal"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="5dp"
-            app:srcCompat="@drawable/bronze_medal" />
+            <ImageButton
+                android:id="@+id/btnLike"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_likee"
+                android:contentDescription="Like"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:scaleType="centerInside"
+                android:layout_marginEnd="4dp"/>
 
-
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/postTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textColor="@android:color/darker_gray"
-        android:text="The time of the fast"/>
-
-    <TextView
-        android:id="@+id/postContent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text="The text of the post"/>
-
-    <ImageView
-        android:id="@+id/postImage"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop"
-        android:layout_marginTop="10dp"
-        android:visibility="gone"/>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="12dp">
-
-    <ImageButton
-        android:id="@+id/btnLike"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/like"
-        android:contentDescription="Like"
-        android:background="?android:attr/selectableItemBackground"
-        android:scaleType="centerInside"
-        android:layout_marginEnd="4dp"/>
-
-    <TextView
-        android:id="@+id/likeCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:textSize="14sp"
-        android:layout_gravity="center_vertical"/>
-
-        <ImageButton
-            android:id="@+id/btnEditPost"
-            android:layout_width="40dp"
-            android:layout_marginStart="10dp"
-            android:layout_height="40dp"
-            android:src="@drawable/pen"
-            android:background="?android:attr/selectableItemBackground"
-            android:visibility="gone"
-            android:scaleType="centerInside"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="12dp">
+            <TextView
+                android:id="@+id/likeCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="14sp"
+                android:textColor="#A8A8A8"/>
+        </LinearLayout>
 
         <ImageButton
             android:id="@+id/btnComment"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:src="@drawable/chat"
-            android:visibility="gone"
             android:contentDescription="Comment"
-            android:layout_marginEnd="16dp"
-            android:background="?android:attr/selectableItemBackground"
-            android:scaleType="centerInside"/>
+            android:layout_marginStart="24dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerInside"
+            android:visibility="gone"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:id="@+id/btnEditPost"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/pen"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:visibility="gone"
+            android:scaleType="centerInside" />
     </LinearLayout>
 </LinearLayout>

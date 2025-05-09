@@ -19,7 +19,7 @@ public class ChatMessage {
         return senderId;
     }
 
-    public String getSenderName() { // Add this method
+    public String getSenderName() {
         return senderName;
     }
 

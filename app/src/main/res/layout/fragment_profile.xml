@@ -15,10 +15,12 @@
         android:fontFamily="serif-monospace"
         android:text="Profile"
         android:textSize="24sp"
+        android:textColor="@color/white"
         android:textStyle="bold" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imgProfile"
+
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:scaleType="centerCrop"
@@ -30,8 +32,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email"
+        android:textStyle="bold"
         android:textSize="16sp"
-        android:textColor="@android:color/black"
+        android:textColor="#767676"
         android:layout_marginBottom="8dp"/>
 
     <EditText
@@ -41,6 +44,11 @@
         android:hint="Enter a nickname"
         android:background="@drawable/design4"
         android:padding="10dp"
+        android:textAlignment="center"
+        android:fontFamily="monospace"
+        android:textStyle="bold"
+        android:textColorHint="#FFFF"
+        android:textColor="@color/white"
         android:layout_marginBottom="12dp"/>
 
     <EditText
@@ -50,6 +58,11 @@
         android:hint="Enter a username"
         android:background="@drawable/design4"
         android:padding="10dp"
+        android:fontFamily="monospace"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textColorHint="#FFFF"
+        android:textColor="@color/white"
         android:layout_marginBottom="12dp" />
 
     <Spinner
@@ -57,7 +70,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/design4"
+        android:textColor="@color/white"
+        android:textColorHint="#FFFF"
+        android:textSize="16sp"
         android:padding="10dp"
+        android:textAlignment="center"
         android:layout_marginBottom="12dp"/>
 
 
@@ -73,7 +90,9 @@
 android:layout_marginEnd="20dp"
         android:layout_height="94dp"
         android:background="@drawable/design4"
-        app:srcCompat="@drawable/save" />
+        app:srcCompat="@drawable/save"
+        android:padding="17dp"
+        android:scaleType="fitCenter"/>
 
 
     <ImageButton
@@ -81,7 +100,9 @@ android:layout_marginEnd="20dp"
         android:layout_width="94dp"
         android:layout_height="94dp"
         android:background="@drawable/design4"
-        app:srcCompat="@drawable/logout__1_" />
+        app:srcCompat="@drawable/logout__1_"
+        android:padding="20dp"
+        android:scaleType="fitCenter"/>
 
 
         </LinearLayout>

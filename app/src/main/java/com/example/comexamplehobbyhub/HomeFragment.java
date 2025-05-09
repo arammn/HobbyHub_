@@ -79,7 +79,6 @@ public class HomeFragment extends Fragment {
                                 post.setPostImage(document.getString("postImage"));
                                 post.setPostId(document.getId());
 
-                                // Добавьте эти строки
                                 post.setLikes((List<String>) document.get("likes"));
                                 post.setLikeCount(document.getLong("likeCount") != null ?
                                         document.getLong("likeCount").intValue() : 0);

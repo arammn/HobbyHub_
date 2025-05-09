@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp"
-    android:background="#FAFAFA">
+    android:background="#212121">
 
     <LinearLayout
         android:orientation="vertical"
@@ -15,7 +15,7 @@
             android:text="🎯 Quests"
             android:textSize="26sp"
             android:textStyle="bold"
-            android:textColor="#333"
+            android:textColor="#FFFF"
             android:layout_marginBottom="32dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -65,18 +65,19 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginEnd="8dp" />
-            </LinearLayout>
+
 
             <ImageButton
                 android:id="@+id/claimLoginButton"
-                android:layout_width="68dp"
+                android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:background="@drawable/design4"
                 app:srcCompat="@drawable/ic_search"
                 android:scaleType="centerInside"
                 android:contentDescription="Claim Login Reward"
                 android:layout_marginStart="8dp"
-                android:padding="8dp" />
+                android:padding="22dp" />
+            </LinearLayout>
         </LinearLayout>
 
         <!-- Event Creation Quest -->
@@ -121,6 +122,7 @@
                         android:id="@+id/eventCooldownTimer"
                         android:textColor="#F44336"
                         android:layout_marginTop="4dp"
+                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </LinearLayout>
@@ -132,18 +134,19 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginEnd="8dp" />
-            </LinearLayout>
+
 
             <ImageButton
                 android:id="@+id/claimEventButton"
-                android:layout_width="68dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:background="@drawable/design4"
                 app:srcCompat="@drawable/ic_search"
                 android:scaleType="centerInside"
                 android:contentDescription="Claim Event Reward"
                 android:layout_marginStart="8dp"
-                android:padding="8dp" />
+                android:padding="22dp" />
+        </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

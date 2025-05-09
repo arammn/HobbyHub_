@@ -43,7 +43,7 @@ public class MapPickerActivity extends FragmentActivity {
         IMapController mapController = mapView.getController();
         mapController.setZoom(15.0);
 
-        GeoPoint defaultPoint = new GeoPoint(34.1425, -118.2551); // Glendale default
+        GeoPoint defaultPoint = new GeoPoint(34.1425, -118.2551);
         mapController.setCenter(defaultPoint);
 
         mapView.setOnTouchListener((v, event) -> {

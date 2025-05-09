@@ -57,7 +57,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         holder.postTime.setText(post.getPostTime());
         holder.postContent.setText(post.getPostContent());
 
-        // В методе onBindViewHolder
         holder.likeCount.setText(String.valueOf(post.getLikeCount() > 0 ? post.getLikeCount() : 0));
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -68,7 +67,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         holder.userAvatar.setTag(userId);
         holder.userRankMedal.setTag(userId);
 
-        // Обработка медали
         ImageView medalView = holder.userRankMedal;
         if (userXpCache.containsKey(userId)) {
             updateMedalImage(medalView, userXpCache.get(userId));
@@ -85,7 +83,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
                     });
         }
 
-        // Обработка данных пользователя
         if (userDataCache.containsKey(userId)) {
             UserData userData = userDataCache.get(userId);
             holder.userName.setText(userData.nickname);
@@ -94,10 +91,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             fetchUserData(userId, holder);
         }
 
-        // Обработка лайков
         List<String> likes = post.getLikes() != null ? post.getLikes() : Collections.emptyList();
         boolean isLiked = currentUserId != null && likes.contains(currentUserId);
-        holder.btnLike.setImageResource(isLiked ? R.drawable.ic_liked : R.drawable.like);
+        holder.btnLike.setImageResource(isLiked ? R.drawable.ic_likedd : R.drawable.ic_likee);
         holder.likeCount.setText(String.valueOf(post.getLikeCount()));
 
         holder.btnLike.setOnClickListener(v -> {
@@ -108,7 +104,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             handleLikeClick(post, currentUserId, holder);
         });
 
-        // Обработка изображения поста
         if (post.getPostImage() != null && !post.getPostImage().isEmpty()) {
             holder.postImage.setVisibility(View.VISIBLE);
             Glide.with(holder.itemView.getContext())
@@ -118,7 +113,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             holder.postImage.setVisibility(View.GONE);
         }
 
-        // Кнопка редактирования
         holder.btnEditPost.setVisibility(
                 currentUserId != null && currentUserId.equals(post.getUserId())
                         ? View.VISIBLE
@@ -178,16 +172,13 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
 
         DocumentReference postRef = FirebaseFirestore.getInstance().collection("posts").document(post.getPostId());
 
-        // Исправленная проверка лайков
         List<String> likes = post.getLikes() != null ? post.getLikes() : new ArrayList<>();
         boolean newIsLiked = !likes.contains(currentUserId);
 
-        // Оптимистичное обновление
         int newCount = newIsLiked ? post.getLikeCount() + 1 : post.getLikeCount() - 1;
         holder.likeCount.setText(String.valueOf(newCount));
-        holder.btnLike.setImageResource(newIsLiked ? R.drawable.ic_liked : R.drawable.like);
+        holder.btnLike.setImageResource(newIsLiked ? R.drawable.ic_likedd : R.drawable.ic_likee);
 
-        // Обновление Firestore
         FirebaseFirestore.getInstance().runTransaction(transaction -> {
             DocumentSnapshot snapshot = transaction.get(postRef);
             List<String> updatedLikes = snapshot.contains("likes") ?
@@ -205,10 +196,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             transaction.update(postRef, "likeCount", newCount);
             return null;
         }).addOnFailureListener(e -> {
-            // Откат при ошибке
             holder.likeCount.setText(String.valueOf(post.getLikeCount()));
             holder.btnLike.setImageResource(likes.contains(currentUserId) ?
-                    R.drawable.ic_liked : R.drawable.like);
+                    R.drawable.ic_likedd : R.drawable.ic_likee);
             Toast.makeText(holder.itemView.getContext(), "Error updating like", Toast.LENGTH_SHORT).show();
         });
     }
@@ -248,5 +238,4 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             imageView.setImageResource(R.drawable.ic_profile_placeholder);
         }
     }
-
 }

@@ -3,54 +3,72 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:fitsSystemWindows="true"
+    android:background="#212121">
+
+
 
     <LinearLayout
-        android:id="@+id/topInfoLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:orientation="vertical"
-        android:padding="12dp"
-        android:gravity="end">
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:padding="16dp">
 
-        <!-- Rank Section -->
+        <!-- Основной контейнер для ранга и прогресс-бара -->
         <LinearLayout
-            android:id="@+id/rankBarLayout"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:background="@drawable/design4"
+            android:paddingStart="8dp"
+            android:paddingEnd="12dp"
+            android:layout_marginEnd="10dp">
 
-            <ImageView
+            <!-- Иконка ранга -->
+            <ImageButton
                 android:id="@+id/rankIcon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginEnd="6dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@android:color/transparent"
+                android:padding="4dp"
+                android:scaleType="centerInside"
                 android:src="@drawable/bronze_medal" />
 
-            <ProgressBar
-                android:id="@+id/xpProgressBar"
-                style="@android:style/Widget.ProgressBar.Horizontal"
-                android:layout_width="80dp"
-                android:layout_height="10dp"
-                android:max="100"
-                android:progress="0"
-                android:progressDrawable="@drawable/progress_bar_drawable" />
+            <!-- Прогресс-бар -->
+            <LinearLayout
+                android:id="@+id/progressBarContainer"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:gravity="center_vertical">
+
+                <ProgressBar
+                    android:id="@+id/xpProgressBar"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="50dp"
+                    android:layout_height="6dp"
+                    android:max="100"
+                    android:progress="0"
+                    android:progressDrawable="@drawable/progress_bar_drawable"
+                    />
+            </LinearLayout>
         </LinearLayout>
 
-        <!-- Currency Section -->
+        <!-- Блок валюты Spark -->
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:background="@drawable/design4"
+            android:padding="8dp">
 
             <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:contentDescription="Spark Coin"
                 android:src="@drawable/spark" />
 
@@ -59,11 +77,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
+                android:fontFamily="monospace"
                 android:text="0"
-                android:fontFamily="serif-monospace"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#000" />
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 
@@ -80,6 +98,7 @@
         android:layout_height="70dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
+        android:layout_marginVertical="5dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/design4"
         android:gravity="center"
@@ -167,4 +186,14 @@
                 android:src="@drawable/profile" />
         </LinearLayout>
     </LinearLayout>
+
+    <!-- В конец RelativeLayout -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/fireworkAnimation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:scaleType="centerCrop"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="false"/>
 </RelativeLayout>

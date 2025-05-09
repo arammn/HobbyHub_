@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="#F5F5F5">
+    android:background="#212121">
 
     <LinearLayout
         android:id="@+id/mainContent"
@@ -20,7 +20,7 @@
             android:fontFamily="monospace"
             android:gravity="center"
             android:text="CREATE A POST"
-            android:textColor="#333333"
+            android:textColor="#FFFF"
             android:textSize="26sp"
             android:textStyle="bold" />
 
@@ -30,7 +30,8 @@
             android:layout_height="wrap_content"
             android:hint="Enter the text of the post"
             android:background="@drawable/design4"
-            android:textColor="#333333"
+            android:textColor="#FFFF"
+            android:textColorHint="#FFFF"
             android:textSize="16sp"
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
@@ -50,7 +51,8 @@
             android:layout_height="84dp"
             android:background="@drawable/design4"
             app:srcCompat="@drawable/upload"
-            android:scaleType="centerInside" />
+            android:padding="14dp"
+            android:scaleType="fitCenter" />
 
         <TextView
             android:id="@+id/textView"
@@ -58,8 +60,9 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-smallcaps"
             android:text="to publish"
+            android:layout_marginTop="5dp"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textStyle="bold" />
     </LinearLayout>
 

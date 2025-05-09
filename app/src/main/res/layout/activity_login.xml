@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/hd_wallpaper"
+    android:background="#212121"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp">
@@ -22,6 +22,8 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="100dp"
+        android:padding="12dp"
+        android:scaleType="fitCenter"
         android:layout_height="100dp"
         android:background="@drawable/design4"
         app:srcCompat="@drawable/image_removebg_preview__1_" />
@@ -37,7 +39,8 @@
         android:inputType="textEmailAddress"
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="@color/black"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFF"
         android:textStyle="bold" />
 
     <EditText
@@ -51,69 +54,76 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:textAlignment="center"
-        android:textColor="@color/black"
+
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFF"
         android:textStyle="bold" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="16dp">
+        android:layout_marginTop="16dp"
+        android:gravity="center">
 
-    <ImageButton
-        android:id="@+id/btnLogin"
-        android:layout_width="84dp"
-        android:layout_height="84dp"
-
-        android:background="@drawable/design4"
-        app:srcCompat="@drawable/login"
-        android:scaleType="centerInside"/>
-
-
-
-    <ImageButton
-        android:id="@+id/btnSignUp"
-        android:layout_width="84dp"
-        android:layout_marginStart="15dp"
-        android:layout_height="84dp"
-        android:background="@drawable/design4"
-        android:scaleType="centerInside"
-        app:srcCompat="@drawable/_d_render_secure_login_password_illustration_removebg_preview" />
-
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-
-        android:layout_marginTop="12dp">
-
-        <TextView
-            android:id="@+id/log_in_text"
-            android:layout_width="match_parent"
-            android:layout_marginStart="5dp"
+        <!-- Login Button with Text -->
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-smallcaps"
-            android:text="login"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold" />
+            android:orientation="vertical"
+            android:gravity="center">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_marginStart="55dp"
-            android:layout_width="match_parent"
+            <ImageButton
+                android:id="@+id/btnLogin"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:background="@drawable/design4"
+                app:srcCompat="@drawable/login"
+                android:scaleType="centerInside"/>
+
+            <TextView
+                android:id="@+id/log_in_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="login"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <!-- Space between buttons -->
+        <Space
+            android:layout_width="15dp"
+            android:layout_height="1dp"/>
+
+        <!-- Register Button with Text -->
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-smallcaps"
-            android:text="Register"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            />
+            android:orientation="vertical"
+            android:gravity="center">
 
+            <ImageButton
+                android:id="@+id/btnSignUp"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:background="@drawable/design4"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/_d_render_secure_login_password_illustration_removebg_preview"/>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="Register"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

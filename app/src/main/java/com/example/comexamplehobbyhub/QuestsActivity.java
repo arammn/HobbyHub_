@@ -98,10 +98,12 @@ public class QuestsActivity extends AppCompatActivity {
                 eventQuestStatus.setText("Available to claim!");
                 eventCooldownTimer.setText("");
                 eventCheckmark.setVisibility(View.GONE);
+                eventCooldownTimer.setVisibility(View.GONE);
             } else {
                 long millisLeft = nextEventRewardDate.toDate().getTime() - serverDate.getTime();
                 long daysLeft = TimeUnit.MILLISECONDS.toDays(millisLeft) + 1;
                 eventQuestStatus.setText("Claimable every 3 days.");
+                eventCooldownTimer.setVisibility(View.VISIBLE);
                 eventCooldownTimer.setText("⏳ Days left: " + daysLeft);
                 eventCheckmark.setVisibility(View.VISIBLE);
             }
@@ -152,7 +154,11 @@ public class QuestsActivity extends AppCompatActivity {
                                                 )
                                                 .addOnSuccessListener(unused2 -> {
                                                     Toast.makeText(this, "✅ Daily login reward claimed!", Toast.LENGTH_SHORT).show();
+
                                                     fetchServerTimeAndCheckQuests();
+                                                    String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                                                    db.collection("users").document(uid)
+                                                            .update("xp", FieldValue.increment(10));
                                                 })
                                                 .addOnFailureListener(e -> {
                                                     Toast.makeText(this, "❌ Failed to update reward.", Toast.LENGTH_SHORT).show();

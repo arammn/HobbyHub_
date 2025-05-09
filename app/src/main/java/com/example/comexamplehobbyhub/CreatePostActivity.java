@@ -156,7 +156,7 @@ public class CreatePostActivity extends AppCompatActivity {
                 conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
                 conn.setDoOutput(true);
 
-                String postData = "image=" + Uri.encode(encodedImage); // Important to encode
+                String postData = "image=" + Uri.encode(encodedImage);
                 OutputStreamWriter writer = new OutputStreamWriter(conn.getOutputStream());
                 writer.write(postData);
                 writer.flush();

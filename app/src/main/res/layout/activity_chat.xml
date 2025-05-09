@@ -2,24 +2,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#212121"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:background="@drawable/design8"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="8dp"
-        android:background="@drawable/design4"
-        android:gravity="center_vertical">
+        android:padding="8dp">
 
         <ImageButton
             android:id="@+id/backButton"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/left_arrow"
+            android:contentDescription="Back"
             android:scaleType="centerInside"
-            android:contentDescription="Back"/>
+            android:src="@drawable/left_arrow" />
 
         <TextView
             android:id="@+id/chatPartnerNameTextView"
@@ -29,7 +33,7 @@
             android:fontFamily="serif-monospace"
             android:text="Username"
             android:textAlignment="center"
-            android:textColor="#000000"
+            android:textColor="#FFFF"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -37,6 +41,7 @@
             android:id="@+id/statusTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
             android:text="Offline"
             android:textColor="#888888"
             android:textSize="14sp"
@@ -48,31 +53,37 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:padding="8dp"/>
+        android:padding="8dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/design5"
+        android:background="@drawable/design8"
         android:orientation="horizontal"
+        android:layout_marginBottom="3dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="3dp"
         android:padding="8dp">
 
         <EditText
             android:id="@+id/messageEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
             android:layout_weight="1"
-            android:background="@drawable/design4"
+            android:background="@drawable/design7"
             android:hint="Type a message"
-            android:padding="8dp"/>
+            android:padding="8dp"
+            android:textColor="@color/white"
+            android:textColorHint="#FFFF" />
 
         <ImageButton
             android:id="@+id/sendButton"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/send_orig"
             android:background="@android:color/transparent"
+            android:contentDescription="Send Message"
             android:scaleType="centerInside"
-            android:contentDescription="Send Message"/>
+            android:src="@drawable/send_orig" />
     </LinearLayout>
 </LinearLayout>
