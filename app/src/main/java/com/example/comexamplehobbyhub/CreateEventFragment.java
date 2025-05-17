@@ -15,7 +15,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -27,7 +32,7 @@ public class CreateEventFragment extends AppCompatActivity {
     private ImageButton createEventButton, pickLocationButton;
     private FirebaseFirestore db;
 
-    private static final long EVENT_COOLDOWN = 86400 * 1000;
+    private static final long EVENT_COOLDOWN = 1 * 1000;
     private String selectedDate = "";
 
     @SuppressLint("MissingInflatedId")
@@ -71,6 +76,7 @@ public class CreateEventFragment extends AppCompatActivity {
         int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 
+
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
                 (DatePicker view, int year1, int monthOfYear, int dayOfMonth) -> {
@@ -78,7 +84,9 @@ public class CreateEventFragment extends AppCompatActivity {
                     eventDateInput.setText(selectedDate);
                 },
                 year, month, day);
+        datePickerDialog.getDatePicker().setMinDate(Calendar.getInstance().getTimeInMillis() - 1000);
         datePickerDialog.show();
+
     }
 
     @Override
@@ -114,16 +122,28 @@ public class CreateEventFragment extends AppCompatActivity {
             return;
         }
 
-        int participants = Integer.parseInt(participantsStr);
+
+
         double latitude = Double.parseDouble(latitudeStr);
         double longitude = Double.parseDouble(longitudeStr);
 
         Map<String, Object> event = new HashMap<>();
         event.put("name", name);
-        event.put("participants", participants);
+        event.put("participants", new ArrayList<String>());
         event.put("latitude", latitude);
         event.put("longitude", longitude);
-        event.put("date", selectedDate);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        try {
+            Date eventDate = sdf.parse(selectedDate);
+            if (eventDate.before(new Date())) {
+                Toast.makeText(this, "Event date cannot be in the past", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            event.put("eventDate", eventDate);
+        } catch (ParseException e) {
+            Toast.makeText(this, "Invalid date format", Toast.LENGTH_SHORT).show();
+            return;
+        }
         event.put("creatorId", FirebaseAuth.getInstance().getCurrentUser().getUid());
         event.put("createdAt", com.google.firebase.firestore.FieldValue.serverTimestamp());
 

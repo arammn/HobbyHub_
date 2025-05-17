@@ -41,6 +41,7 @@
         <activity android:name=".ChatActivity" />
         <activity android:name=".MapPickerActivity" />
         <activity android:name=".QuestsActivity" />
+        <activity android:name=".EventSettingsActivity" />
         <uses-library android:name="org.osmdroid.views.MapView" android:required="false"/>
         <meta-data android:name="org.osmdroid.config" android:value="true"/>
 

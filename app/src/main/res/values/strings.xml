@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">HobbyHub</string>
         <string name="google_maps_api_key">AIzaSyDeEVG2YK7B_vmLDRgj8UKBVkO2RvceV4o</string>
-
+    <string name="join_button">Join</string>
+    <string name="settings_button">Settings</string>
+    <string name="navigate_button">Navigate</string>
+    <string name="participants">Participants</string>
 </resources>

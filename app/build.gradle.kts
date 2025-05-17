@@ -44,6 +44,7 @@ dependencies {
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.database)
     implementation(libs.play.services.maps)
+    implementation(libs.swiperefreshlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -83,5 +84,9 @@ dependencies {
 
     implementation("com.airbnb.android:lottie:6.1.0")
 
+    implementation("com.stripe:stripe-android:20.34.0")
+    implementation("com.squareup.okhttp3:okhttp:4.9.3")
+
+    implementation("de.hdodenhof:circleimageview:3.1.0")
 }
 
